@@ -11,7 +11,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import org.kde.kdeconnect_tp.databinding.ListItemCategoryBinding;
+import org.kde.kdeconnect_custom.databinding.ListItemCategoryBinding;
 
 public class SectionItem implements ListAdapter.Item {
     private final String title;

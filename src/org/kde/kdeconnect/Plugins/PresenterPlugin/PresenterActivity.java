@@ -27,8 +27,8 @@ import androidx.media.VolumeProviderCompat;
 
 import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.UserInterface.ThemeUtil;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ActivityPresenterBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ActivityPresenterBinding;
 
 import java.util.Objects;
 

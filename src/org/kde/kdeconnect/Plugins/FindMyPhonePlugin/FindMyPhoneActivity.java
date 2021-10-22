@@ -15,7 +15,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.UserInterface.ThemeUtil;
-import org.kde.kdeconnect_tp.databinding.ActivityFindMyPhoneBinding;
+import org.kde.kdeconnect_custom.databinding.ActivityFindMyPhoneBinding;
 
 import java.util.Objects;
 

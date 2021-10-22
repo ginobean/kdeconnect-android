@@ -18,7 +18,7 @@ import org.kde.kdeconnect.Plugins.Plugin;
 import org.kde.kdeconnect.Plugins.PluginFactory;
 import org.kde.kdeconnect.UserInterface.MainActivity;
 import org.kde.kdeconnect.UserInterface.StartActivityAlertDialogFragment;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 @PluginFactory.LoadablePlugin
 @RequiresApi(api = Build.VERSION_CODES.N)

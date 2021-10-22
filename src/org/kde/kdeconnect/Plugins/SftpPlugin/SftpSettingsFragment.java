@@ -39,7 +39,7 @@ import org.kde.kdeconnect.Helpers.StorageHelper;
 import org.kde.kdeconnect.Plugins.Plugin;
 import org.kde.kdeconnect.UserInterface.PluginSettingsActivity;
 import org.kde.kdeconnect.UserInterface.PluginSettingsFragment;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.io.File;
 import java.util.ArrayList;

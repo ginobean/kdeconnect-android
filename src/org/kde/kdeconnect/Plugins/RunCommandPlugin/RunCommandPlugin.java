@@ -17,7 +17,7 @@ import org.json.JSONObject;
 import org.kde.kdeconnect.NetworkPacket;
 import org.kde.kdeconnect.Plugins.Plugin;
 import org.kde.kdeconnect.Plugins.PluginFactory;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

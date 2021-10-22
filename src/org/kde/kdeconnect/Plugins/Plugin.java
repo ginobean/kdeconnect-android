@@ -27,7 +27,7 @@ import org.kde.kdeconnect.UserInterface.AlertDialogFragment;
 import org.kde.kdeconnect.UserInterface.MainActivity;
 import org.kde.kdeconnect.UserInterface.PermissionsAlertDialogFragment;
 import org.kde.kdeconnect.UserInterface.PluginSettingsFragment;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 public abstract class Plugin {
     protected Device device;

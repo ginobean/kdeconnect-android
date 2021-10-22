@@ -25,7 +25,7 @@ import org.kde.kdeconnect.Helpers.FilesHelper;
 import org.kde.kdeconnect.Helpers.MediaStoreHelper;
 import org.kde.kdeconnect.NetworkPacket;
 import org.kde.kdeconnect.async.BackgroundJob;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -333,7 +333,7 @@ public class CompositeReceiveFileJob extends BackgroundJob<Device, Void> {
         if (Build.VERSION.SDK_INT >= 24) {
             //Nougat and later require "content://" uris instead of "file://" uris
             File file = new File(fileDocument.getUri().getPath());
-            Uri contentUri = FileProvider.getUriForFile(getDevice().getContext(), "org.kde.kdeconnect_tp.fileprovider", file);
+            Uri contentUri = FileProvider.getUriForFile(getDevice().getContext(), "org.kde.kdeconnect_custom.fileprovider", file);
             intent.setDataAndType(contentUri, mimeType);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_ACTIVITY_NEW_TASK);
         } else {

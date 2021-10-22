@@ -52,7 +52,7 @@ import org.apache.commons.io.IOUtils;
 import org.kde.kdeconnect.Helpers.SMSHelper;
 import org.kde.kdeconnect.Helpers.TelephonyHelper;
 import org.kde.kdeconnect.NetworkPacket;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

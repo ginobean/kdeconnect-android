@@ -27,7 +27,7 @@ import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.Device;
 import org.kde.kdeconnect.Helpers.NotificationHelper;
 import org.kde.kdeconnect.Plugins.NotificationsPlugin.NotificationReceiver;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.util.HashSet;
 
@@ -47,7 +47,7 @@ import androidx.media.app.NotificationCompat.MediaStyle;
  */
 public class MprisMediaSession implements SharedPreferences.OnSharedPreferenceChangeListener, NotificationReceiver.NotificationListener {
     private final static int MPRIS_MEDIA_NOTIFICATION_ID = 0x91b70463; // echo MprisNotification | md5sum | head -c 8
-    private final static String MPRIS_MEDIA_SESSION_TAG = "org.kde.kdeconnect_tp.media_session";
+    private final static String MPRIS_MEDIA_SESSION_TAG = "org.kde.kdeconnect_custom.media_session";
 
     private static final MprisMediaSession instance = new MprisMediaSession();
 

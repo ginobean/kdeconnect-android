@@ -21,8 +21,8 @@ import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.UserInterface.MainActivity;
 import org.kde.kdeconnect.UserInterface.PermissionsAlertDialogFragment;
 import org.kde.kdeconnect.UserInterface.ThemeUtil;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ActivityBigscreenBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ActivityBigscreenBinding;
 
 import java.util.ArrayList;
 import java.util.Objects;

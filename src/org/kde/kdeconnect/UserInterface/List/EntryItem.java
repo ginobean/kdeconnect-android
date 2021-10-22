@@ -11,7 +11,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import org.kde.kdeconnect_tp.databinding.ListItemEntryBinding;
+import org.kde.kdeconnect_custom.databinding.ListItemEntryBinding;
 
 public class EntryItem implements ListAdapter.Item {
     protected final String title;

@@ -15,7 +15,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 
 import org.kde.kdeconnect.UserInterface.PluginSettingsFragment;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import androidx.annotation.NonNull;
 import androidx.preference.Preference;

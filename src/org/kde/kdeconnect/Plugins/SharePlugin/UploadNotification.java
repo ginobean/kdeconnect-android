@@ -18,7 +18,7 @@ import androidx.preference.PreferenceManager;
 
 import org.kde.kdeconnect.Device;
 import org.kde.kdeconnect.Helpers.NotificationHelper;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 class UploadNotification {
     private final NotificationManager notificationManager;

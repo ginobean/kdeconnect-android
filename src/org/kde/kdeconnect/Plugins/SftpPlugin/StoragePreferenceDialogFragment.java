@@ -29,8 +29,8 @@ import androidx.preference.PreferenceDialogFragmentCompat;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.kde.kdeconnect.Helpers.StorageHelper;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.FragmentStoragePreferenceDialogBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.FragmentStoragePreferenceDialogBinding;
 
 public class StoragePreferenceDialogFragment extends PreferenceDialogFragmentCompat implements TextWatcher {
     private static final int REQUEST_CODE_DOCUMENT_TREE = 1001;

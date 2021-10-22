@@ -12,8 +12,8 @@ import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
 import org.kde.kdeconnect.BackgroundService;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ListItemSystemvolumeBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ListItemSystemvolumeBinding;
 
 class SinkItemHolder extends RecyclerView.ViewHolder
         implements

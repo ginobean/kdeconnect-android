@@ -35,8 +35,8 @@ import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.Device;
 import org.kde.kdeconnect.Helpers.DeviceHelper;
 import org.kde.kdeconnect.Plugins.SharePlugin.ShareSettingsFragment;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ActivityMainBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ActivityMainBinding;
 
 import java.util.Collection;
 import java.util.HashMap;

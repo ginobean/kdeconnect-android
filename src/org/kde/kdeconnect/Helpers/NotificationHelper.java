@@ -10,7 +10,7 @@ import android.preference.PreferenceManager;
 
 import androidx.core.content.ContextCompat;
 
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 public class NotificationHelper {
 

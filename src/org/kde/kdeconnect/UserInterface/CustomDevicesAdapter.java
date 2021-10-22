@@ -20,8 +20,8 @@ import androidx.core.widget.TextViewCompat;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.CustomDeviceItemBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.CustomDeviceItemBinding;
 
 import java.util.ArrayList;
 

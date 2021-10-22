@@ -36,11 +36,11 @@ import org.kde.kdeconnect.Helpers.TrustedNetworkHelper;
 import org.kde.kdeconnect.UserInterface.List.ListAdapter;
 import org.kde.kdeconnect.UserInterface.List.PairingDeviceItem;
 import org.kde.kdeconnect.UserInterface.List.SectionItem;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.DevicesListBinding;
-import org.kde.kdeconnect_tp.databinding.PairingExplanationNotTrustedBinding;
-import org.kde.kdeconnect_tp.databinding.PairingExplanationTextBinding;
-import org.kde.kdeconnect_tp.databinding.PairingExplanationTextNoWifiBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.DevicesListBinding;
+import org.kde.kdeconnect_custom.databinding.PairingExplanationNotTrustedBinding;
+import org.kde.kdeconnect_custom.databinding.PairingExplanationTextBinding;
+import org.kde.kdeconnect_custom.databinding.PairingExplanationTextNoWifiBinding;
 
 import java.util.ArrayList;
 import java.util.Collection;

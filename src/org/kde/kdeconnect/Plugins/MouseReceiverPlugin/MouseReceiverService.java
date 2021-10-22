@@ -26,7 +26,7 @@ import android.widget.ImageView;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.ContextCompat;
 
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.util.ArrayDeque;
 import java.util.Deque;

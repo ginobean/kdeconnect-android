@@ -35,9 +35,9 @@ import org.kde.kdeconnect.Backends.BaseLinkProvider;
 import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.Helpers.VideoUrlsHelper;
 import org.kde.kdeconnect.NetworkPacket;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.MprisControlBinding;
-import org.kde.kdeconnect_tp.databinding.MprisNowPlayingBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.MprisControlBinding;
+import org.kde.kdeconnect_custom.databinding.MprisNowPlayingBinding;
 
 import java.net.MalformedURLException;
 import java.util.List;

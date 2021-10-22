@@ -14,7 +14,7 @@ import android.util.Log;
 import org.kde.kdeconnect.Backends.BasePairingHandler;
 import org.kde.kdeconnect.Device;
 import org.kde.kdeconnect.NetworkPacket;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.security.cert.CertificateEncodingException;
 import java.util.Timer;

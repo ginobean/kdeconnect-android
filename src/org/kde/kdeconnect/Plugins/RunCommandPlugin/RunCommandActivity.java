@@ -28,8 +28,8 @@ import org.json.JSONObject;
 import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.UserInterface.List.ListAdapter;
 import org.kde.kdeconnect.UserInterface.ThemeUtil;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ActivityRunCommandBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ActivityRunCommandBinding;
 
 import java.util.ArrayList;
 import java.util.Collections;

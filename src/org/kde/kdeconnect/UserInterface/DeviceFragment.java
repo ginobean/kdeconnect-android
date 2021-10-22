@@ -36,8 +36,8 @@ import org.kde.kdeconnect.UserInterface.List.ListAdapter;
 import org.kde.kdeconnect.UserInterface.List.PluginItem;
 import org.kde.kdeconnect.UserInterface.List.PluginListHeaderItem;
 import org.kde.kdeconnect.UserInterface.List.SetDefaultAppPluginListItem;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ActivityDeviceBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ActivityDeviceBinding;
 
 import java.util.ArrayList;
 import java.util.Collection;

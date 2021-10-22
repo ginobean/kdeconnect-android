@@ -24,7 +24,7 @@ import org.apache.commons.io.IOUtils;
 import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.Helpers.DeviceHelper;
 import org.kde.kdeconnect.Helpers.NotificationHelper;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.io.IOException;
 import java.io.InputStream;

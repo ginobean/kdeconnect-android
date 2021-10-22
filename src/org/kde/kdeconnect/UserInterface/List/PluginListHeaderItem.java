@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 
-import org.kde.kdeconnect_tp.databinding.ListItemPluginHeaderBinding;
+import org.kde.kdeconnect_custom.databinding.ListItemPluginHeaderBinding;
 
 public class PluginListHeaderItem implements ListAdapter.Item {
     private final int text;

@@ -47,7 +47,7 @@ import org.kde.kdeconnect.Plugins.PluginFactory;
 import org.kde.kdeconnect.UserInterface.MainActivity;
 import org.kde.kdeconnect.UserInterface.PluginSettingsFragment;
 import org.kde.kdeconnect.UserInterface.StartActivityAlertDialogFragment;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.io.ByteArrayOutputStream;
 import java.security.MessageDigest;
@@ -203,7 +203,7 @@ public class NotificationsPlugin extends Plugin implements NotificationReceiver.
             return;
         }
 
-        if ("org.kde.kdeconnect_tp".equals(packageName)) {
+        if ("org.kde.kdeconnect_custom".equals(packageName)) {
             // Don't send our own notifications
             return;
         }

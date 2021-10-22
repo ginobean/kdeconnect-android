@@ -21,8 +21,8 @@ import org.kde.kdeconnect.UserInterface.List.EntryItemWithIcon;
 import org.kde.kdeconnect.UserInterface.List.ListAdapter;
 import org.kde.kdeconnect.UserInterface.List.SectionItem;
 import org.kde.kdeconnect.UserInterface.ThemeUtil;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ActivityShareBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ActivityShareBinding;
 
 import java.util.ArrayList;
 import java.util.Collection;

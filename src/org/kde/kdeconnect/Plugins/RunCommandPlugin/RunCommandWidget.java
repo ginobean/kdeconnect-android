@@ -14,7 +14,7 @@ import android.widget.RemoteViews;
 
 import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.Device;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 public class RunCommandWidget extends AppWidgetProvider {
 

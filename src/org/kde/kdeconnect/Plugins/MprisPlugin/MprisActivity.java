@@ -19,8 +19,8 @@ import com.google.android.material.tabs.TabLayoutMediator;
 
 import org.kde.kdeconnect.Plugins.SystemVolumePlugin.SystemVolumeFragment;
 import org.kde.kdeconnect.UserInterface.ThemeUtil;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ActivityMprisBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ActivityMprisBinding;
 
 import java.util.Objects;
 

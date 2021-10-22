@@ -23,7 +23,7 @@ import androidx.core.content.ContextCompat;
 
 import org.kde.kdeconnect.UserInterface.MainActivity;
 import org.kde.kdeconnect.UserInterface.PluginSettingsActivity;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.util.ArrayList;
 import java.util.List;

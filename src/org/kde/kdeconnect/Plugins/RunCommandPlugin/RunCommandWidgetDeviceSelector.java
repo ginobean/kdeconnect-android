@@ -10,7 +10,7 @@ import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.Device;
 import org.kde.kdeconnect.UserInterface.List.ListAdapter;
 import org.kde.kdeconnect.UserInterface.ThemeUtil;
-import org.kde.kdeconnect_tp.databinding.WidgetRemoteCommandPluginDialogBinding;
+import org.kde.kdeconnect_custom.databinding.WidgetRemoteCommandPluginDialogBinding;
 
 import java.util.Comparator;
 import java.util.List;

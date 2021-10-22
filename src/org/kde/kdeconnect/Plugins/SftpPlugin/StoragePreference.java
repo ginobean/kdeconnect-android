@@ -18,7 +18,7 @@ import androidx.annotation.Nullable;
 import androidx.preference.DialogPreference;
 import androidx.preference.PreferenceViewHolder;
 
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 public class StoragePreference extends DialogPreference {
     @Nullable

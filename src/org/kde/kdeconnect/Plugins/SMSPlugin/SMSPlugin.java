@@ -36,8 +36,8 @@ import org.kde.kdeconnect.NetworkPacket;
 import org.kde.kdeconnect.Plugins.Plugin;
 import org.kde.kdeconnect.Plugins.PluginFactory;
 import org.kde.kdeconnect.Plugins.TelephonyPlugin.TelephonyPlugin;
-import org.kde.kdeconnect_tp.BuildConfig;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.BuildConfig;
+import org.kde.kdeconnect_custom.R;
 
 import java.util.ArrayList;
 import java.util.Collection;

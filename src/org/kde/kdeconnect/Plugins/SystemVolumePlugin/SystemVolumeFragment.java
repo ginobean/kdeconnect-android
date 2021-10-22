@@ -25,9 +25,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.Plugins.MprisPlugin.MprisPlugin;
 import org.kde.kdeconnect.Plugins.MprisPlugin.VolumeKeyListener;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ListItemSystemvolumeBinding;
-import org.kde.kdeconnect_tp.databinding.SystemVolumeFragmentBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ListItemSystemvolumeBinding;
+import org.kde.kdeconnect_custom.databinding.SystemVolumeFragmentBinding;
 
 import java.util.ArrayList;
 import java.util.List;

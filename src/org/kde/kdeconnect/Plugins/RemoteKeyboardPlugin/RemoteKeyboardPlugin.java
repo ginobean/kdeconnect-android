@@ -24,7 +24,7 @@ import org.kde.kdeconnect.Plugins.Plugin;
 import org.kde.kdeconnect.Plugins.PluginFactory;
 import org.kde.kdeconnect.UserInterface.MainActivity;
 import org.kde.kdeconnect.UserInterface.StartActivityAlertDialogFragment;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.util.ArrayList;
 import java.util.concurrent.locks.ReentrantLock;
@@ -394,7 +394,7 @@ public class RemoteKeyboardPlugin extends Plugin implements SharedPreferences.On
 
     @Override
     public boolean checkRequiredPermissions() {
-        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ENABLED_INPUT_METHODS).contains("org.kde.kdeconnect_tp");
+        return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ENABLED_INPUT_METHODS).contains("org.kde.kdeconnect_custom");
     }
 
     @Override

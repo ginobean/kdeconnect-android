@@ -12,7 +12,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import org.kde.kdeconnect_tp.databinding.ListItemWithIconEntryBinding;
+import org.kde.kdeconnect_custom.databinding.ListItemWithIconEntryBinding;
 
 public class EntryItemWithIcon implements ListAdapter.Item {
     protected final String title;

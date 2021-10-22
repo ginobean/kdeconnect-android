@@ -38,7 +38,7 @@ import org.kde.kdeconnect.Plugins.RunCommandPlugin.RunCommandActivity;
 import org.kde.kdeconnect.Plugins.RunCommandPlugin.RunCommandPlugin;
 import org.kde.kdeconnect.Plugins.SharePlugin.SendFileActivity;
 import org.kde.kdeconnect.UserInterface.MainActivity;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -16,8 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.android.internal.util.ArrayUtils;
 
 import org.kde.kdeconnect.Helpers.TrustedNetworkHelper;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.TrustedNetworkListBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.TrustedNetworkListBinding;
 
 import java.util.ArrayList;
 import java.util.Collections;

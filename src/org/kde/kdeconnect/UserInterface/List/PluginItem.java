@@ -14,8 +14,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 
 import org.kde.kdeconnect.Plugins.Plugin;
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.ListItemWithIconEntryBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.ListItemWithIconEntryBinding;
 
 public class PluginItem implements ListAdapter.Item {
     private final Plugin plugin;

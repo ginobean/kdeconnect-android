@@ -3,5 +3,5 @@
     <external-path
         name="external_files"
         path="." />
-    <external-path name="images" path="Android/data/org.kde.kdeconnect_tp/files/Pictures" />
+    <external-path name="images" path="Android/data/org.kde.kdeconnect_custom/files/Pictures" />
 </paths>

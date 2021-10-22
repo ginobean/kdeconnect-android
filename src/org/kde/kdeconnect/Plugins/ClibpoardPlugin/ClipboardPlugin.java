@@ -11,7 +11,7 @@ package org.kde.kdeconnect.Plugins.ClibpoardPlugin;
 import org.kde.kdeconnect.NetworkPacket;
 import org.kde.kdeconnect.Plugins.Plugin;
 import org.kde.kdeconnect.Plugins.PluginFactory;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 @PluginFactory.LoadablePlugin
 public class ClipboardPlugin extends Plugin {

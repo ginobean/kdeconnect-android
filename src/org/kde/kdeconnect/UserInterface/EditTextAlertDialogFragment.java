@@ -15,8 +15,8 @@ import androidx.annotation.StringRes;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import org.kde.kdeconnect_tp.R;
-import org.kde.kdeconnect_tp.databinding.EditTextAlertDialogViewBinding;
+import org.kde.kdeconnect_custom.R;
+import org.kde.kdeconnect_custom.databinding.EditTextAlertDialogViewBinding;
 
 public class EditTextAlertDialogFragment extends AlertDialogFragment {
     private static final String KEY_HINT_RES_ID = "HintResId";

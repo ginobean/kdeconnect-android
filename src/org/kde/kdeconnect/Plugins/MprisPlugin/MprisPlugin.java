@@ -19,7 +19,7 @@ import androidx.core.content.ContextCompat;
 import org.kde.kdeconnect.NetworkPacket;
 import org.kde.kdeconnect.Plugins.Plugin;
 import org.kde.kdeconnect.Plugins.PluginFactory;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import java.net.MalformedURLException;
 import java.net.URL;

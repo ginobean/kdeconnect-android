@@ -14,7 +14,7 @@ import android.content.Intent;
 import android.os.Build;
 
 import org.kde.kdeconnect.MyApplication;
-import org.kde.kdeconnect_tp.R;
+import org.kde.kdeconnect_custom.R;
 
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;

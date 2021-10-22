@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.kde.kdeconnect_tp"
+    package="org.kde.kdeconnect_custom"
     android:versionCode="11700"
     android:versionName="1.17.0">
 
@@ -47,7 +47,7 @@
 
     <application
         android:icon="@drawable/icon"
-        android:label="KDE Connect"
+        android:label="KDE Custom"
         android:supportsRtl="true"
         android:allowBackup="false"
         android:networkSecurityConfig="@xml/network_security_config"
@@ -90,7 +90,7 @@
 
         <activity
             android:name="org.kde.kdeconnect.UserInterface.MainActivity"
-            android:label="KDE Connect"
+            android:label="KDE Custom"
             android:theme="@style/KdeConnectTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -122,7 +122,7 @@
         </activity>
         <activity
             android:name="org.kde.kdeconnect.Plugins.SharePlugin.SendFileActivity"
-            android:label="KDE Connect"
+            android:label="KDE Custom"
             android:parentActivityName="org.kde.kdeconnect.UserInterface.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -283,7 +283,7 @@
         </activity>
         <activity
             android:name="org.kde.kdeconnect.Plugins.SharePlugin.ShareActivity"
-            android:label="KDE Connect">
+            android:label="KDE Custom">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 
@@ -312,7 +312,7 @@
 
         <provider
             android:name="androidx.core.content.FileProvider"
-            android:authorities="org.kde.kdeconnect_tp.fileprovider"
+            android:authorities="org.kde.kdeconnect_custom.fileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
