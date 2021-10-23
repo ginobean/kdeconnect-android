@@ -60,7 +60,7 @@ public class RunCommandPlugin extends Plugin {
 
     @Override
     public String getDisplayName() {
-        return context.getResources().getString(R.string.pref_plugin_runcommand);
+        return context.getResources().getString(R.string.unified_run_commands);
     }
 
     @Override
@@ -158,6 +158,8 @@ public class RunCommandPlugin extends Plugin {
 
     @Override
     public void startMainActivity(Activity parentActivity) {
+        Log.d("RunCommandPlugin", "starting UnifiedRunCommanActivity..");
+        Log.d("RunCommandPlugin", "parentActivity class = " + parentActivity.getClass());
         Intent intent = new Intent(parentActivity, UnifiedRunCommandActivity.class);
         intent.putExtra("deviceId", device.getDeviceId());
         parentActivity.startActivity(intent);

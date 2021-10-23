@@ -34,6 +34,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.kde.kdeconnect.BackgroundService;
 import org.kde.kdeconnect.Device;
 import org.kde.kdeconnect.Helpers.DeviceHelper;
+import org.kde.kdeconnect.Plugins.RunCommandPlugin.UnifiedRunCommandActivity;
 import org.kde.kdeconnect.Plugins.SharePlugin.ShareSettingsFragment;
 import org.kde.kdeconnect_custom.R;
 import org.kde.kdeconnect_custom.databinding.ActivityMainBinding;
@@ -45,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
     private static final int MENU_ENTRY_ADD_DEVICE = 1; //0 means no-selection
     private static final int MENU_ENTRY_SETTINGS = 2;
+    private static final int MENU_ENTRY_UNIFIED_RUN_VIEW = 3;
+
     private static final int MENU_ENTRY_DEVICE_FIRST_ID = 1000; //All subsequent ids are devices in the menu
     private static final int MENU_ENTRY_DEVICE_UNKNOWN = 9999; //It's still a device, but we don't know which one yet
     private static final int STORAGE_lOCATION_CONFIGURED = 2020;
@@ -124,6 +127,16 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     preferences.edit().putString(STATE_SELECTED_DEVICE, null).apply();
                     setContentFragment(new PairingFragment());
                     break;
+
+                    case MENU_ENTRY_UNIFIED_RUN_VIEW:
+                        Log.d("MainActivity", "launching UnifiedRunCommandActivity..");
+                        Intent intent = new Intent(this,
+                                                   UnifiedRunCommandActivity.class);
+
+                        startActivity(intent);
+                        break;
+
+
                 case MENU_ENTRY_SETTINGS:
                     mCurrentDevice = null;
                     preferences.edit().putString(STATE_SELECTED_DEVICE, null).apply();
@@ -274,6 +287,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                 }
             }
 
+            MenuItem unifiedRunItem = devicesMenu.add(Menu.FIRST, MENU_ENTRY_UNIFIED_RUN_VIEW, 1000, R.string.unified_run_commands);
+            unifiedRunItem.setCheckable(true);
+
             MenuItem addDeviceItem = devicesMenu.add(Menu.FIRST, MENU_ENTRY_ADD_DEVICE, 1000, R.string.pair_new_device);
             addDeviceItem.setIcon(R.drawable.ic_action_content_add_circle_outline_32dp);
             addDeviceItem.setCheckable(true);
@@ -323,7 +339,9 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         mCurrentDevice = deviceId;
         preferences.edit().putString(STATE_SELECTED_DEVICE, deviceId).apply();
 
+        Log.d("MainActivity", "on device selected, deviceId = " + deviceId);
         if (mCurrentDevice != null) {
+
             mCurrentMenuEntry = deviceIdToMenuEntryId(deviceId);
             if (mCurrentMenuEntry == MENU_ENTRY_DEVICE_UNKNOWN) {
                 uncheckAllMenuItems(mNavigationView.getMenu());

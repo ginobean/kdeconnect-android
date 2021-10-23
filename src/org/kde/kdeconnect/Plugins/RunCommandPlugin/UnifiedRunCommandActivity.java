@@ -41,19 +41,13 @@ import java.util.Objects;
 
 public class UnifiedRunCommandActivity extends AppCompatActivity {
     private ActivityRunCommandBinding binding;
-//    private String deviceId;
     private final RunCommandPlugin.CommandsChangedCallback commandsChangedCallback = this::updateView;
     private List<CommandEntry> commandItems;
 
 
     private void updateView() {
-        if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-            Log.d("UnifiedRunCommand", "UnifiedRunCommandActivity is running in UI thread..");
-
-        }
-        else {
-            Log.d("UnifiedRunCommand", "UnifiedRunCommandActivity is NOT running in UI thread!");
-        }
+        Log.d("UnifiedRunCommand", "refreshing Unified RunCommand view..");
+        assert (Looper.getMainLooper().getThread() == Thread.currentThread());
 
         registerForContextMenu(binding.runCommandsList);
 
@@ -93,14 +87,10 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
             commandItems.get(i).getPlugin().runCommand(command);
         });
 
-        if (commandItems.size() == 0) {
-            String text = getString(R.string.addcommand_explanation);
-//            if (!plugin.canAddCommand()) {
-//                text += "\n" + getString(R.string.addcommand_explanation2);
-//            }
-            binding.addComandExplanation.setText(text);
-            binding.addComandExplanation.setVisibility(commandItems.isEmpty() ? View.VISIBLE : View.GONE);
-        }
+        Log.d("UnifiedRunCommand", "commandItems size = " + commandItems.size());
+        String text = getString(R.string.addcommand_explanation);
+        binding.addComandExplanation.setText(text);
+        binding.addComandExplanation.setVisibility(commandItems.isEmpty() ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -114,35 +104,6 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
         setSupportActionBar(binding.toolbarLayout.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
-//        deviceId = getIntent().getStringExtra("deviceId");
-
-        boolean canAddCommands = false;
-/*
-        try {
-            canAddCommands = BackgroundService.getInstance().getDevice(deviceId).getPlugin(RunCommandPlugin.class).canAddCommand();
-        } catch (Exception ignore) {
-        }
-
-
-        if (canAddCommands) {
-            binding.addCommandButton.show();
-        } else {
-
-        }
-
-        binding.addCommandButton.hide();
-
-        binding.addCommandButton.setOnClickListener(v -> BackgroundService.RunWithPlugin(UnifiedRunCommandActivity.this, deviceId, RunCommandPlugin.class, plugin -> {
-            plugin.sendSetupPacket();
-             new AlertDialog.Builder(UnifiedRunCommandActivity.this)
-                    .setTitle(R.string.add_command)
-                    .setMessage(R.string.add_command_description)
-                    .setPositiveButton(R.string.ok, null)
-                    .show();
-        }));
-
-*/
         updateView();
     }
 
@@ -162,7 +123,6 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
             RunCommandPlugin plugin = entry.getPlugin();
             String deviceId = plugin.getDevice().getDeviceId();
             String url = "kdeconnect://runcommand/" + deviceId + "/" + entry.getKey();
-            Log.d("UnifiedRunCommand", "KDE url request = " + url);
             ClipboardManager cm = ContextCompat.getSystemService(this, ClipboardManager.class);
             cm.setText(url);
             Toast toast = Toast.makeText(this, R.string.clipboard_toast, Toast.LENGTH_SHORT);

@@ -189,9 +189,19 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name="org.kde.kdeconnect.Plugins.RunCommandPlugin.UnifiedRunCommandActivity"
+
+        <activity android:name="org.kde.kdeconnect.Plugins.RunCommandPlugin.RunCommandActivity"
             android:label="@string/pref_plugin_runcommand"
+            android:parentActivityName="org.kde.kdeconnect.UserInterface.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.kde.kdeconnect.UserInterface.MainActivity" />
+        </activity>
+
+        <activity
+
+android:name="org.kde.kdeconnect.Plugins.RunCommandPlugin.UnifiedRunCommandActivity"
+            android:label="@string/unified_run_commands"
             android:parentActivityName="org.kde.kdeconnect.UserInterface.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
