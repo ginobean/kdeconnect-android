@@ -288,6 +288,7 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
             }
 
             MenuItem unifiedRunItem = devicesMenu.add(Menu.FIRST, MENU_ENTRY_UNIFIED_RUN_VIEW, 1000, R.string.unified_run_commands);
+            unifiedRunItem.setIcon(R.drawable.ic_key);
             unifiedRunItem.setCheckable(true);
 
             MenuItem addDeviceItem = devicesMenu.add(Menu.FIRST, MENU_ENTRY_ADD_DEVICE, 1000, R.string.pair_new_device);
