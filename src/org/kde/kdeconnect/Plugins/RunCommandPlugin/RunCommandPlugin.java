@@ -96,7 +96,7 @@ public class RunCommandPlugin extends Plugin {
 
                     try {
                         commandItems.add(
-                                new CommandEntry(
+                                new CommandEntry(this,
                                         o.getString("name"),
                                         o.getString("command"),
                                         o.getString("key")
@@ -158,7 +158,7 @@ public class RunCommandPlugin extends Plugin {
 
     @Override
     public void startMainActivity(Activity parentActivity) {
-        Intent intent = new Intent(parentActivity, RunCommandActivity.class);
+        Intent intent = new Intent(parentActivity, UnifiedRunCommandActivity.class);
         intent.putExtra("deviceId", device.getDeviceId());
         parentActivity.startActivity(intent);
     }

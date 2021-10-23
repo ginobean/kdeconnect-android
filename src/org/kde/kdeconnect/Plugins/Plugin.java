@@ -46,6 +46,12 @@ public abstract class Plugin {
         }
     }
 
+
+    public Device getDevice() {
+        return device;
+    }
+
+
     public String getSharedPreferencesName() {
         if (device == null) {
             throw new RuntimeException("You have to call setContext() before you can call getSharedPreferencesName()");

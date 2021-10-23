@@ -31,7 +31,7 @@ public class RunCommandWidgetDeviceSelector extends AppCompatActivity {
         BackgroundService.RunCommand(this, service -> runOnUiThread(() -> {
             final List<CommandEntry> deviceItems = service.getDevices().values().stream()
                     .filter(Device::isPaired).filter(Device::isReachable)
-                    .map(device -> new CommandEntry(device.getName(), null, device.getDeviceId()))
+                    .map(device -> new CommandEntry(null, device.getName(), null, device.getDeviceId()))
                     .sorted(Comparator.comparing(CommandEntry::getName))
                     .collect(Collectors.toList());
 

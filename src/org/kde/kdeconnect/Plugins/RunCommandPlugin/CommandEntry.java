@@ -6,14 +6,17 @@
 
 package org.kde.kdeconnect.Plugins.RunCommandPlugin;
 
+import org.kde.kdeconnect.Plugins.Plugin;
 import org.kde.kdeconnect.UserInterface.List.EntryItem;
 
 class CommandEntry extends EntryItem {
     private final String key;
+    private RunCommandPlugin plugin;
 
-    public CommandEntry(String name, String cmd, String key) {
+    public CommandEntry(RunCommandPlugin plugin, String name, String cmd, String key) {
         super(name, cmd);
         this.key = key;
+        this.plugin = plugin;
     }
 
     public String getKey() {
@@ -27,4 +30,7 @@ class CommandEntry extends EntryItem {
     public String getCommand() {
         return subtitle;
     }
+
+    public RunCommandPlugin getPlugin() { return plugin; }
+    public void setPlugin(RunCommandPlugin plugin) { this.plugin = plugin; }
 }

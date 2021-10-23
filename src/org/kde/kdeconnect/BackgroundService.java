@@ -34,13 +34,14 @@ import org.kde.kdeconnect.Helpers.SecurityHelpers.SslHelper;
 import org.kde.kdeconnect.Plugins.ClibpoardPlugin.ClipboardFloatingActivity;
 import org.kde.kdeconnect.Plugins.Plugin;
 import org.kde.kdeconnect.Plugins.PluginFactory;
-import org.kde.kdeconnect.Plugins.RunCommandPlugin.RunCommandActivity;
+import org.kde.kdeconnect.Plugins.RunCommandPlugin.UnifiedRunCommandActivity;
 import org.kde.kdeconnect.Plugins.RunCommandPlugin.RunCommandPlugin;
 import org.kde.kdeconnect.Plugins.SharePlugin.SendFileActivity;
 import org.kde.kdeconnect.UserInterface.MainActivity;
 import org.kde.kdeconnect_custom.R;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -74,6 +75,8 @@ public class BackgroundService extends Service {
     public static BackgroundService getInstance() {
         return instance;
     }
+
+    public Collection<Device> getDeviceList() { return devices.values(); }
 
     private boolean acquireDiscoveryMode(Object key) {
         boolean wasEmpty = discoveryModeAcquisitions.isEmpty();
@@ -373,7 +376,8 @@ public class BackgroundService extends Service {
                 Device device = getDevice(connectedDeviceIds.get(0));
                 RunCommandPlugin plugin = (RunCommandPlugin) device.getPlugin("RunCommandPlugin");
                 if (plugin != null && !plugin.getCommandList().isEmpty()) {
-                    Intent runCommand = new Intent(this, RunCommandActivity.class);
+                    Intent runCommand = new Intent(this, UnifiedRunCommandActivity.class);
+                    // UnifiedRunCommandActivity doesn't access this "deviceId"
                     runCommand.putExtra("deviceId", connectedDeviceIds.get(0));
                     PendingIntent runPendingCommand = PendingIntent.getActivity(this, 2, runCommand, PendingIntent.FLAG_UPDATE_CURRENT);
                     notification.addAction(0, getString(R.string.pref_plugin_runcommand), runPendingCommand);
