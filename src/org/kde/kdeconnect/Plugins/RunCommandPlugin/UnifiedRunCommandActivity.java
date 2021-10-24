@@ -20,7 +20,6 @@ import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -52,6 +51,7 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
         registerForContextMenu(binding.runCommandsList);
 
         commandItems = new ArrayList<>();
+        boolean deviceHasNoRunCommands = false;
 
         for (Device d : BackgroundService.getInstance().getDeviceList()) {
             Log.d("UnifiedRunCommand", "device name = " + d.getName());
@@ -63,6 +63,10 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
             if (plugin == null) {
                 Log.d("UnifiedRunCommand", "device's RunCommandPlugin is currently null! ");
                 continue;
+            }
+
+            if (plugin.getCommandList().size() == 0) {
+                deviceHasNoRunCommands = true;
             }
 
             for (JSONObject obj : plugin.getCommandList()) {
@@ -87,10 +91,8 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
             commandItems.get(i).getPlugin().runCommand(command);
         });
 
-        Log.d("UnifiedRunCommand", "commandItems size = " + commandItems.size());
-        String text = getString(R.string.addcommand_explanation);
-        binding.addComandExplanation.setText(text);
-        binding.addComandExplanation.setVisibility(commandItems.isEmpty() ? View.VISIBLE : View.GONE);
+        binding.addCommandExplanation.setText(getString(R.string.add_command_instructions));
+        binding.addCommandExplanation.setVisibility(deviceHasNoRunCommands ? View.VISIBLE : View.GONE);
     }
 
     @Override

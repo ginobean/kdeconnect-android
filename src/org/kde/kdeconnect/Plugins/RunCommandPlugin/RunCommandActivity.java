@@ -69,8 +69,8 @@ public class RunCommandActivity extends AppCompatActivity {
             if (!plugin.canAddCommand()) {
                 text += "\n" + getString(R.string.addcommand_explanation2);
             }
-            binding.addComandExplanation.setText(text);
-            binding.addComandExplanation.setVisibility(commandItems.isEmpty() ? View.VISIBLE : View.GONE);
+            binding.addCommandExplanation.setText(text);
+            binding.addCommandExplanation.setVisibility(commandItems.isEmpty() ? View.VISIBLE : View.GONE);
         }));
     }
 

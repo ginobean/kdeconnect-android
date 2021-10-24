@@ -36,7 +36,7 @@
             app:layout_anchorGravity="bottom|end" />
 
         <TextView
-            android:id="@+id/add_comand_explanation"
+            android:id="@+id/add_command_explanation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
