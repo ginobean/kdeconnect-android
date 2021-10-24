@@ -46,54 +46,60 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
 
 
     private void updateView() {
-        Log.d("UnifiedRunCommand", "refreshing Unified RunCommand view..");
-        assert (Looper.getMainLooper().getThread() == Thread.currentThread());
+        runOnUiThread(new Runnable() {
+            @Override
+                    public void run() {
+                Log.d("UnifiedRunCommand", "refreshing Unified RunCommand view..");
 
-        registerForContextMenu(binding.runCommandsList);
 
-        commandItems = new ArrayList<>();
-        boolean deviceHasNoRunCommands = false;
+                registerForContextMenu(binding.runCommandsList);
 
-        for (Device d : BackgroundService.getInstance().getDeviceList()) {
-            Log.d("UnifiedRunCommand", "device name = " + d.getName());
-            if (! (d.isReachable() && d.isPaired())) {
-                Log.d("UnifiedRunCommand", "device " + d.getName() + " is currently inaccessible.");
-                continue;
+                commandItems = new ArrayList<>();
+                boolean deviceHasNoRunCommands = false;
+
+                for (Device d : BackgroundService.getInstance().getDeviceList()) {
+                    Log.d("UnifiedRunCommand", "device name = " + d.getName());
+                    if (!(d.isReachable() && d.isPaired())) {
+                        Log.d("UnifiedRunCommand", "device " + d.getName() + " is currently inaccessible.");
+                        continue;
+                    }
+                    final RunCommandPlugin plugin = d.getPlugin(RunCommandPlugin.class);
+                    if (plugin == null) {
+                        Log.d("UnifiedRunCommand", "device's RunCommandPlugin is currently null! ");
+                        continue;
+                    }
+
+                    if (plugin.getCommandList().size() == 0) {
+                        deviceHasNoRunCommands = true;
+                    }
+
+                    for (JSONObject obj : plugin.getCommandList()) {
+                        try {
+                            commandItems.add(new CommandEntry(plugin, obj.getString("name"),
+                                    obj.getString("command"), obj.getString("key")));
+                        } catch (JSONException e) {
+                            Log.e("RunCommand", "Error parsing JSON", e);
+                        }
+                    }
+
+                } // end for (Device..
+
+                Collections.sort(commandItems, Comparator.comparing(CommandEntry::getName));
+
+                ListAdapter adapter = new ListAdapter(UnifiedRunCommandActivity.this, commandItems);
+
+                binding.runCommandsList.setAdapter(adapter);
+                binding.runCommandsList.setOnItemClickListener((adapterView, view1, i, l) -> {
+                    String command = commandItems.get(i).getKey();
+                    Log.d("UnifiedRunCommand", "running command " + command);
+                    commandItems.get(i).getPlugin().runCommand(command);
+                });
+
+                binding.addCommandExplanation.setText(getString(R.string.add_command_instructions));
+                binding.addCommandExplanation.setVisibility(deviceHasNoRunCommands ? View.VISIBLE : View.GONE);
             }
-            final RunCommandPlugin plugin = d.getPlugin(RunCommandPlugin.class);
-            if (plugin == null) {
-                Log.d("UnifiedRunCommand", "device's RunCommandPlugin is currently null! ");
-                continue;
-            }
-
-            if (plugin.getCommandList().size() == 0) {
-                deviceHasNoRunCommands = true;
-            }
-
-            for (JSONObject obj : plugin.getCommandList()) {
-                try {
-                    commandItems.add(new CommandEntry(plugin, obj.getString("name"),
-                            obj.getString("command"), obj.getString("key")));
-                } catch (JSONException e) {
-                    Log.e("RunCommand", "Error parsing JSON", e);
-                }
-            }
-
-        } // end for (Device..
-
-        Collections.sort(commandItems, Comparator.comparing(CommandEntry::getName));
-
-        ListAdapter adapter = new ListAdapter(UnifiedRunCommandActivity.this, commandItems);
-
-        binding.runCommandsList.setAdapter(adapter);
-        binding.runCommandsList.setOnItemClickListener((adapterView, view1, i, l) -> {
-            String command = commandItems.get(i).getKey();
-            Log.d("UnifiedRunCommand", "running command " + command);
-            commandItems.get(i).getPlugin().runCommand(command);
         });
 
-        binding.addCommandExplanation.setText(getString(R.string.add_command_instructions));
-        binding.addCommandExplanation.setVisibility(deviceHasNoRunCommands ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -137,11 +143,31 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+        for (Device d : BackgroundService.getInstance().getDeviceList()) {
+            final RunCommandPlugin plugin = d.getPlugin(RunCommandPlugin.class);
+            if (plugin == null) {
+                continue;
+            }
+
+            // the 'remove' step is to ensure idempotency
+            plugin.removeCommandsUpdatedCallback(commandsChangedCallback);
+            plugin.addCommandsUpdatedCallback(commandsChangedCallback);
+        }
         updateView();
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+
+        for (Device d : BackgroundService.getInstance().getDeviceList()) {
+            final RunCommandPlugin plugin = d.getPlugin(RunCommandPlugin.class);
+            if (plugin == null) {
+                continue;
+            }
+
+            plugin.removeCommandsUpdatedCallback(commandsChangedCallback);
+        }
     }
 }
