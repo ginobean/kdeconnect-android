@@ -30,7 +30,8 @@ import org.kde.kdeconnect.Device;
 import org.kde.kdeconnect.UserInterface.List.ListAdapter;
 import org.kde.kdeconnect.UserInterface.ThemeUtil;
 import org.kde.kdeconnect_custom.R;
-import org.kde.kdeconnect_custom.databinding.ActivityRunCommandBinding;
+import org.kde.kdeconnect_custom.databinding.UnifiedRunCommandsBinding;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -39,7 +40,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class UnifiedRunCommandActivity extends AppCompatActivity {
-    private ActivityRunCommandBinding binding;
+    private UnifiedRunCommandsBinding binding;
     private final RunCommandPlugin.CommandsChangedCallback commandsChangedCallback = this::updateView;
     private List<CommandEntry> commandItems;
 
@@ -100,7 +101,7 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         ThemeUtil.setUserPreferredTheme(this);
 
-        binding = ActivityRunCommandBinding.inflate(getLayoutInflater());
+        binding = UnifiedRunCommandsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbarLayout.toolbar);
