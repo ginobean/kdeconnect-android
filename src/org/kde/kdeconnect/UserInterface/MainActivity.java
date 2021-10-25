@@ -129,7 +129,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
                     break;
 
                     case MENU_ENTRY_UNIFIED_RUN_VIEW:
-                        Log.d("MainActivity", "launching UnifiedRunCommandActivity..");
                         Intent intent = new Intent(this,
                                                    UnifiedRunCommandActivity.class);
 
@@ -340,7 +339,6 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         mCurrentDevice = deviceId;
         preferences.edit().putString(STATE_SELECTED_DEVICE, deviceId).apply();
 
-        Log.d("MainActivity", "on device selected, deviceId = " + deviceId);
         if (mCurrentDevice != null) {
 
             mCurrentMenuEntry = deviceIdToMenuEntryId(deviceId);

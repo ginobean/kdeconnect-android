@@ -49,7 +49,7 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
                     public void run() {
-                Log.d("UnifiedRunCommand", "refreshing Unified RunCommand view..");
+                Log.i("UnifiedRunCommand", "refreshing Unified RunCommand view..");
 
 
                 registerForContextMenu(binding.runCommandsList);
@@ -58,14 +58,14 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
                 boolean deviceHasNoRunCommands = false;
 
                 for (Device d : BackgroundService.getInstance().getDeviceList()) {
-                    Log.d("UnifiedRunCommand", "device name = " + d.getName());
+                    Log.i("UnifiedRunCommand", "device name = " + d.getName());
                     if (!(d.isReachable() && d.isPaired())) {
-                        Log.d("UnifiedRunCommand", "device " + d.getName() + " is currently inaccessible.");
+                        Log.i("UnifiedRunCommand", "device " + d.getName() + " is currently inaccessible.");
                         continue;
                     }
                     final RunCommandPlugin plugin = d.getPlugin(RunCommandPlugin.class);
                     if (plugin == null) {
-                        Log.d("UnifiedRunCommand", "device's RunCommandPlugin is currently null! ");
+                        Log.i("UnifiedRunCommand", "device's RunCommandPlugin is currently null! ");
                         continue;
                     }
 
@@ -91,7 +91,7 @@ public class UnifiedRunCommandActivity extends AppCompatActivity {
                 binding.runCommandsList.setAdapter(adapter);
                 binding.runCommandsList.setOnItemClickListener((adapterView, view1, i, l) -> {
                     String command = commandItems.get(i).getKey();
-                    Log.d("UnifiedRunCommand", "running command " + command);
+                    Log.i("UnifiedRunCommand", "running command " + command);
                     commandItems.get(i).getPlugin().runCommand(command);
                 });
 

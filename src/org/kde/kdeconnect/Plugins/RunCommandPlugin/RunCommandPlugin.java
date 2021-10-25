@@ -158,8 +158,6 @@ public class RunCommandPlugin extends Plugin {
 
     @Override
     public void startMainActivity(Activity parentActivity) {
-        Log.d("RunCommandPlugin", "starting UnifiedRunCommanActivity..");
-        Log.d("RunCommandPlugin", "parentActivity class = " + parentActivity.getClass());
         Intent intent = new Intent(parentActivity, UnifiedRunCommandActivity.class);
         intent.putExtra("deviceId", device.getDeviceId());
         parentActivity.startActivity(intent);
