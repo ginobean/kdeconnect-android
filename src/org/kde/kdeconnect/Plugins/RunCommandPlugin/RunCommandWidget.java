@@ -58,6 +58,7 @@ public class RunCommandWidget extends AppWidgetProvider {
     }
 
     private void setCurrentDevice(final Context context) {
+        Log.i("widget", "setCurrentDevice");
         Intent popup = new Intent(context, RunCommandWidgetDeviceSelector.class);
         popup.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
 
@@ -94,17 +95,18 @@ public class RunCommandWidget extends AppWidgetProvider {
             PendingIntent pendingIntent;
             Intent intent;
 
-            intent = new Intent(context, RunCommandWidget.class);
-            intent.setAction(SET_CURRENT_DEVICE);
-            pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-            views.setOnClickPendingIntent(R.id.runcommandWidgetTitleHeader, pendingIntent);
+//             intent = new Intent(context, RunCommandWidget.class);
+//             intent.setAction(SET_CURRENT_DEVICE);
+//             pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+//            views.setOnClickPendingIntent(R.id.runcommandWidgetTitleHeader, pendingIntent);
+//            views.setTextViewText(R.id.runcommandWidgetTitleHeader, "foobar");
 
             if (getCurrentDevice() == null || !getCurrentDevice().isReachable()) {
                 views.setTextViewText(R.id.runcommandWidgetTitle, context.getString(R.string.pref_plugin_runcommand));
                 views.setViewVisibility(R.id.run_commands_list, View.GONE);
                 views.setViewVisibility(R.id.not_reachable_message, View.VISIBLE);
             } else {
-                views.setTextViewText(R.id.runcommandWidgetTitle, getCurrentDevice().getName());
+                views.setTextViewText(R.id.runcommandWidgetTitle, "foobar");
                 views.setViewVisibility(R.id.run_commands_list, View.VISIBLE);
                 views.setViewVisibility(R.id.not_reachable_message, View.GONE);
             }
@@ -147,6 +149,7 @@ public class RunCommandWidget extends AppWidgetProvider {
     }
 
     public static void setCurrentDevice(final String DeviceId) {
+        Log.i("widget", "setCurrentDevice deviceId = " + DeviceId);
         currentDeviceId = DeviceId;
     }
 }
