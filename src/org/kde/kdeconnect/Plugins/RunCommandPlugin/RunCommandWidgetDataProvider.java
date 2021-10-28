@@ -30,9 +30,6 @@ class RunCommandWidgetDataProvider implements RemoteViewsService.RemoteViewsFact
         mContext = context;
     }
 
-    // private void checkPlugin() {
-    //     return RunCommandWidget.getCurrentDevice() != null && RunCommandWidget.getCurrentDevice().isReachable() && RunCommandWidget.getCurrentDevice().getPlugin(RunCommandPlugin.class) != null;
-    // }
 
     @Override
     public void onCreate() {
@@ -54,7 +51,6 @@ class RunCommandWidgetDataProvider implements RemoteViewsService.RemoteViewsFact
 
 
     private void updateViewModel() {
-        Log.i("UnifiedDataProvider", "refreshing Unified RunCommand view widget..");
         commandItems.clear();
 
         for (Device d : BackgroundService.getInstance().getDeviceList()) {
@@ -69,7 +65,6 @@ class RunCommandWidgetDataProvider implements RemoteViewsService.RemoteViewsFact
                 continue;
             }
 
-            Log.i("UnifiedDataProvider", "command list size = " + plugin.getCommandList().size());
             for (JSONObject obj : plugin.getCommandList()) {
                 try {
                     commandItems.add(new CommandEntry(plugin, obj.getString("name"),
@@ -94,14 +89,11 @@ class RunCommandWidgetDataProvider implements RemoteViewsService.RemoteViewsFact
     @Override
     public RemoteViews getViewAt(int i) {
 
-        Log.i("UnifiedDataProvider", "getViewAt(" + i + ")");
         RemoteViews remoteView = new RemoteViews(mContext.getPackageName(), R.layout.list_item_entry);
 
         CommandEntry entry = commandItems.get(i);
         RunCommandPlugin plugin = entry.getPlugin();
         String deviceId = plugin.getDevice().getDeviceId();
-
-        Log.i("UnifiedDataProvider", "getviewat deviceid = " + deviceId);
 
         final Intent configIntent = new Intent(mContext, RunCommandWidget.class);
         configIntent.setAction(RunCommandWidget.RUN_COMMAND_ACTION);
@@ -129,9 +121,7 @@ class RunCommandWidgetDataProvider implements RemoteViewsService.RemoteViewsFact
 
     @Override
     public long getItemId(int i) {
-        Log.i("UnifiedDataProvider", "getItemId " + i);
         if (i < commandItems.size()) {
-            Log.i("UnifiedDataProvider", "hash code = " + commandItems.get(i).getKey().hashCode());
             return commandItems.get(i).getKey().hashCode();
         }
 

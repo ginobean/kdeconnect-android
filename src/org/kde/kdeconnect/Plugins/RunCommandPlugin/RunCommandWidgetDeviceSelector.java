@@ -40,9 +40,6 @@ public class RunCommandWidgetDeviceSelector extends AppCompatActivity {
 
             binding.runCommandsDeviceList.setAdapter(adapter);
             binding.runCommandsDeviceList.setOnItemClickListener((adapterView, viewContent, i, l) -> {
-                CommandEntry entry = deviceItems.get(i);
-//                RunCommandWidget.setCurrentDevice(entry.getKey());
-
                 Intent updateWidget = new Intent(RunCommandWidgetDeviceSelector.this, RunCommandWidget.class);
                 RunCommandWidgetDeviceSelector.this.sendBroadcast(updateWidget);
 
