@@ -40,15 +40,13 @@ public class RunCommandWidget extends AppWidgetProvider {
 
                 if (plugin != null) {
                     try {
-
+                        Log.i("RunCommandWidget", "running command " + targetCommand);
                         plugin.runCommand(targetCommand);
                     } catch (Exception ex) {
                         Log.e("RunCommandWidget", "Error running command", ex);
                     }
                 }
             });
-        } else if (intent != null && TextUtils.equals(intent.getAction(), SET_CURRENT_DEVICE)) {
-            setCurrentDevice(context);
         }
 
         final Intent newIntent = new Intent(context, RunCommandWidgetDataProviderService.class);
@@ -57,30 +55,12 @@ public class RunCommandWidget extends AppWidgetProvider {
 
     }
 
-    private void setCurrentDevice(final Context context) {
-        Log.i("widget", "setCurrentDevice");
-        Intent popup = new Intent(context, RunCommandWidgetDeviceSelector.class);
-        popup.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS);
-
-        context.startActivity(popup);
-    }
 
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         updateWidget(context);
     }
 
     private void updateWidget(final Context context) {
-
-        if (getCurrentDevice() == null || !getCurrentDevice().isReachable()) {
-
-            BackgroundService.RunCommand(context, service -> {
-                if (service.getDevices().size() > 0)
-                    currentDeviceId = service.getDevices().elements().nextElement().getDeviceId();
-
-                updateWidgetImpl(context);
-            });
-        }
-
         updateWidgetImpl(context);
     }
 
@@ -95,21 +75,13 @@ public class RunCommandWidget extends AppWidgetProvider {
             PendingIntent pendingIntent;
             Intent intent;
 
-//             intent = new Intent(context, RunCommandWidget.class);
-//             intent.setAction(SET_CURRENT_DEVICE);
-//             pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-//            views.setOnClickPendingIntent(R.id.runcommandWidgetTitleHeader, pendingIntent);
-//            views.setTextViewText(R.id.runcommandWidgetTitleHeader, "foobar");
-
-            if (getCurrentDevice() == null || !getCurrentDevice().isReachable()) {
-                views.setTextViewText(R.id.runcommandWidgetTitle, context.getString(R.string.pref_plugin_runcommand));
-                views.setViewVisibility(R.id.run_commands_list, View.GONE);
-                views.setViewVisibility(R.id.not_reachable_message, View.VISIBLE);
-            } else {
-                views.setTextViewText(R.id.runcommandWidgetTitle, "foobar");
-                views.setViewVisibility(R.id.run_commands_list, View.VISIBLE);
-                views.setViewVisibility(R.id.not_reachable_message, View.GONE);
-            }
+            intent = new Intent(context, RunCommandWidget.class);
+            intent.setAction(SET_CURRENT_DEVICE);
+            pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            views.setOnClickPendingIntent(R.id.runcommandWidgetTitleHeader, pendingIntent);
+            views.setTextViewText(R.id.runcommandWidgetTitle, "fubaro");
+            views.setViewVisibility(R.id.run_commands_list, View.VISIBLE);
+            views.setViewVisibility(R.id.not_reachable_message, View.GONE);
 
             for (int appWidgetId : appWidgetIds) {
 
@@ -137,19 +109,5 @@ public class RunCommandWidget extends AppWidgetProvider {
                 context.sendBroadcast(updateWidget);
             });
         }
-    }
-
-    public static Device getCurrentDevice() {
-
-        try {
-            return BackgroundService.getInstance().getDevice(currentDeviceId);
-        } catch (Exception ex) {
-            return null;
-        }
-    }
-
-    public static void setCurrentDevice(final String DeviceId) {
-        Log.i("widget", "setCurrentDevice deviceId = " + DeviceId);
-        currentDeviceId = DeviceId;
     }
 }

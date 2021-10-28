@@ -16,6 +16,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// this class has been superceded by the unified run commands functionality.
 public class RunCommandWidgetDeviceSelector extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle bundle) {
@@ -40,7 +41,7 @@ public class RunCommandWidgetDeviceSelector extends AppCompatActivity {
             binding.runCommandsDeviceList.setAdapter(adapter);
             binding.runCommandsDeviceList.setOnItemClickListener((adapterView, viewContent, i, l) -> {
                 CommandEntry entry = deviceItems.get(i);
-                RunCommandWidget.setCurrentDevice(entry.getKey());
+//                RunCommandWidget.setCurrentDevice(entry.getKey());
 
                 Intent updateWidget = new Intent(RunCommandWidgetDeviceSelector.this, RunCommandWidget.class);
                 RunCommandWidgetDeviceSelector.this.sendBroadcast(updateWidget);
