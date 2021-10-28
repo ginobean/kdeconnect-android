@@ -102,7 +102,7 @@ class RunCommandWidgetDataProvider implements RemoteViewsService.RemoteViewsFact
 
         remoteView.setTextViewText(R.id.list_item_entry_title, entry.getName());
         remoteView.setTextViewText(R.id.list_item_entry_summary, entry.getCommand());
-        remoteView.setViewVisibility(R.id.list_item_entry_summary, View.VISIBLE);
+        remoteView.setViewVisibility(R.id.list_item_entry_summary, View.GONE);
 
         remoteView.setOnClickFillInIntent(R.id.list_item_entry, configIntent);
 
