@@ -79,7 +79,7 @@ public class RunCommandWidget extends AppWidgetProvider {
             intent.setAction(SET_CURRENT_DEVICE);
             pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
             views.setOnClickPendingIntent(R.id.runcommandWidgetTitleHeader, pendingIntent);
-            views.setTextViewText(R.id.runcommandWidgetTitle, "fubaro");
+            views.setTextViewText(R.id.runcommandWidgetTitle, context.getString(R.string.refresh));
             views.setViewVisibility(R.id.run_commands_list, View.VISIBLE);
             views.setViewVisibility(R.id.not_reachable_message, View.GONE);
 
