@@ -55,13 +55,10 @@ class RunCommandWidgetDataProvider implements RemoteViewsService.RemoteViewsFact
 
         for (Device d : BackgroundService.getInstance().getDeviceList()) {
             Log.i("UnifiedDataProvider", "device name = " + d.getName());
-            if (!(d.isReachable() && d.isPaired())) {
-                Log.i("UnifiedDataProvider", "device " + d.getName() + " is currently inaccessible.");
-                continue;
-            }
+            d.reloadPluginsFromSettings();
             final RunCommandPlugin plugin = d.getPlugin(RunCommandPlugin.class);
             if (plugin == null) {
-                Log.i("UnifiedDataProvider", "device's RunCommandPlugin is currently null! ");
+                Log.i("UnifiedDataProvider", d.getName() + "'s RunCommandPlugin is currently null.. ");
                 continue;
             }
 
