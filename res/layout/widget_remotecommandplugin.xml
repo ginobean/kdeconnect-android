@@ -49,5 +49,6 @@
         android:paddingStart="8dip"
         android:paddingLeft="8dip"
         android:text="@string/unreachable_description"
+        android:visibility="gone"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 </LinearLayout>
