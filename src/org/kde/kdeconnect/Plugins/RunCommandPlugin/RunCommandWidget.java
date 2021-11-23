@@ -75,9 +75,10 @@ public class RunCommandWidget extends AppWidgetProvider {
             PendingIntent pendingIntent;
             Intent intent;
 
-            intent = new Intent(context, RunCommandWidget.class);
-            intent.setAction(SET_CURRENT_DEVICE);
-            pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            intent = context.getPackageManager().getLaunchIntentForPackage(context.getPackageName());
+            intent.setAction("unifiedRunView-" + Long.toString(System.currentTimeMillis()));
+            pendingIntent = PendingIntent.getActivity(context, 0, intent,
+                                                      PendingIntent.FLAG_UPDATE_CURRENT);
             views.setOnClickPendingIntent(R.id.runcommandWidgetTitleHeader, pendingIntent);
             views.setTextViewText(R.id.runcommandWidgetTitle, context.getString(R.string.refresh));
             views.setViewVisibility(R.id.run_commands_list, View.VISIBLE);

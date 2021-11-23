@@ -154,7 +154,18 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         // Decide which menu entry should be selected at start
         String savedDevice;
         int savedMenuEntry;
-        if (getIntent().hasExtra("forceOverview")) {
+        boolean unifiedRunView = false;
+
+        Log.i("MainActivity", " main activity intent action = " + getIntent().getAction());
+        String action = getIntent().getAction();
+
+        if (action.startsWith("unifiedRunView")) {
+            Log.i("MainActivity", "unifiedRunView action was invoked by widget!");
+            savedDevice = null;
+            savedMenuEntry = MENU_ENTRY_UNIFIED_RUN_VIEW;
+            unifiedRunView = true;
+        }
+        else if (getIntent().hasExtra("forceOverview")) {
             Log.i("MainActivity", "Requested to start main overview");
             savedDevice = null;
             savedMenuEntry = MENU_ENTRY_ADD_DEVICE;
@@ -194,13 +205,29 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
         }
 
         // Activate the chosen fragment and select the entry in the menu
-        if (savedMenuEntry >= MENU_ENTRY_DEVICE_FIRST_ID && savedDevice != null) {
+        if ((! unifiedRunView) && (savedMenuEntry >= MENU_ENTRY_DEVICE_FIRST_ID)) {
             onDeviceSelected(savedDevice);
         } else {
             if (mCurrentMenuEntry == MENU_ENTRY_SETTINGS) {
                 setContentFragment(new SettingsFragment());
             } else {
                 setContentFragment(new PairingFragment());
+
+                if (unifiedRunView) {
+                    final MainActivity mainActivity = this;
+                    new Thread( () -> {
+                            try {
+                                Thread.sleep(200);
+                            }
+                            catch (InterruptedException ignored) { }
+                            mainActivity.runOnUiThread( () -> {
+                    Intent intent = new Intent(mainActivity,
+                                               UnifiedRunCommandActivity.class);
+
+                    mainActivity.startActivity(intent);
+                                });
+                    }).start();
+                }
             }
         }
     }
