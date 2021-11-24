@@ -226,6 +226,21 @@ public class MainActivity extends AppCompatActivity implements SharedPreferences
 
                     mainActivity.startActivity(intent);
                                 });
+
+                    try {
+                        Thread.sleep(200);
+                    }
+                    catch (InterruptedException ignored) { }
+
+                    // Re-launching the main app seems to be sufficient
+                    // to reliably get a correctly updated list of connected
+                    // machines. Hide the main app afterwards, as I generally
+                    // go through the run widget, to invoke run commands.
+                    mainActivity.runOnUiThread( () -> {
+                            mainActivity.moveTaskToBack(true);
+                        });
+
+
                     }).start();
                 }
             }
